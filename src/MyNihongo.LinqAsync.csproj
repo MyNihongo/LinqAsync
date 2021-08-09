@@ -1,20 +1,28 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-	  <Nullable>enable</Nullable>
-	  <PackageId>MyNihongo.LinqAsync</PackageId>
-	  <Authors>MyNihongo</Authors>
-	  <Product>MyNihongo</Product>
-	  <Copyright>Copyright © 2021 MyNihongo</Copyright>
-	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
-	  <PackageIcon>favico.png</PackageIcon>
-	  <Version>0.1.0</Version>
-	  <PackageProjectUrl>https://github.com/MyNihongo/LinqAsync</PackageProjectUrl>
-	  <RepositoryUrl>https://github.com/MyNihongo/LinqAsync</RepositoryUrl>
-	  <PackageReleaseNotes>https://github.com/MyNihongo/LinqAsync/releases/</PackageReleaseNotes>
-	  <PackageTags>async, linq</PackageTags>
-	  <Description>Async extension methods for LINQ expressions</Description>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<PackageId>MyNihongo.LinqAsync</PackageId>
+		<Authors>MyNihongo</Authors>
+		<Product>MyNihongo</Product>
+		<Copyright>Copyright © 2021 MyNihongo</Copyright>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<Version>0.1.0</Version>
+		<PackageProjectUrl>https://github.com/MyNihongo/LinqAsync</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/MyNihongo/LinqAsync</RepositoryUrl>
+		<PackageReleaseNotes>https://github.com/MyNihongo/LinqAsync/releases/</PackageReleaseNotes>
+		<PackageTags>async, linq</PackageTags>
+		<Description>Async extension methods for LINQ expressions</Description>
+		<PackageIcon>favico.png</PackageIcon>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\favico.png">
+			<Pack>True</Pack>
+			<PackagePath />
+		</None>
+	</ItemGroup>
 
 </Project>
