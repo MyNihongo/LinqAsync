@@ -1,12 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net5.0</TargetFramework>
+		<TargetFrameworks>netstandard2.0;net5.0</TargetFrameworks>
+		<LangVersion>latest</LangVersion>
 		<Nullable>enable</Nullable>
 		<PackageId>MyNihongo.LinqAsync</PackageId>
 		<Authors>MyNihongo</Authors>
 		<Product>MyNihongo</Product>
-		<Copyright>Copyright © 2021 MyNihongo</Copyright>
+		<Copyright>Copyright © 2022 MyNihongo</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<Version>0.1.0</Version>
 		<PackageProjectUrl>https://github.com/MyNihongo/LinqAsync</PackageProjectUrl>
@@ -15,7 +16,7 @@
 		<PackageTags>async, linq</PackageTags>
 		<Description>Async extension methods for LINQ expressions</Description>
 		<PackageIcon>favico.png</PackageIcon>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -23,6 +24,10 @@
 			<Pack>True</Pack>
 			<PackagePath />
 		</None>
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' != 'netstandard2.0' ">
+	  <PackageReference Include="System.Collections.Immutable" Version="6.0.0" />
 	</ItemGroup>
 
 </Project>
