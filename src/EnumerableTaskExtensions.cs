@@ -40,7 +40,7 @@ namespace MyNihongo.LinqAsync
 
 		#endregion
 
-		#region ToLookup
+		#region ToLookup - IEnumerable
 
 		public static async Task<ILookup<TKey, TSource>> ToLookupAsync<TSource, TKey>(this Task<IEnumerable<TSource>> @this, Func<TSource, TKey> keySelector)
 		{
@@ -64,6 +64,12 @@ namespace MyNihongo.LinqAsync
 		{
 			var source = await @this.ConfigureAwait(false);
 			return source.ToLookup(keySelector, elementSelector, comparer);
+		}
+
+		public static async Task<ILookup<TKey, TElement>> ToLookupAsync<TSource, TKey, TElement>(this Task<TSource[]> @this, Func<TSource, TKey> keySelector, Func<TSource, TElement> elementSelector)
+		{
+			var source = await @this.ConfigureAwait(false);
+			return source.ToLookup(keySelector, elementSelector);
 		}
 
 		#endregion
@@ -205,6 +211,12 @@ namespace MyNihongo.LinqAsync
 		}
 
 		public static async Task<IEnumerable<TResult>> Select<TSource, TResult>(this Task<IEnumerable<TSource>> @this, Func<TSource, int, TResult> selector)
+		{
+			var source = await @this.ConfigureAwait(false);
+			return source.Select(selector);
+		}
+
+		public static async Task<IEnumerable<TResult>> Select<TSource, TResult>(this Task<TSource[]> @this, Func<TSource, TResult> selector)
 		{
 			var source = await @this.ConfigureAwait(false);
 			return source.Select(selector);
