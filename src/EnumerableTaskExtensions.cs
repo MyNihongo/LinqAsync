@@ -9,29 +9,28 @@ public static class EnumerableTaskExtensions
 		var source = await @this.ConfigureAwait(false);
 		return source.ToArray();
 	}
-#if !NETSTANDARD2_0
 	public static async Task<ImmutableArray<T>> ToImmutableArrayAsync<T>(this Task<IEnumerable<T>> @this)
 	{
 		var source = await @this.ConfigureAwait(false);
 		return source.ToImmutableArray();
 	}
-#endif
+
 	#endregion
 
-#region ToList
+	#region ToList
 
 	public static async Task<IList<T>> ToListAsync<T>(this Task<IEnumerable<T>> @this)
 	{
 		var source = await @this.ConfigureAwait(false);
 		return source.ToList();
 	}
-#if !NETSTANDARD2_0
+
 	public static async Task<IImmutableList<T>> ToImmutableListAsync<T>(this Task<IEnumerable<T>> @this)
 	{
 		var source = await @this.ConfigureAwait(false);
 		return source.ToImmutableList();
 	}
-#endif
+
 	#endregion
 
 	#region ToLookup - IEnumerable
@@ -66,9 +65,9 @@ public static class EnumerableTaskExtensions
 		return source.ToLookup(keySelector, elementSelector);
 	}
 
-#endregion
+	#endregion
 
-#region ToSet
+	#region ToSet
 #if !NETSTANDARD2_0
 	public static async Task<ISet<TSource>> ToHashSetAsync<TSource>(this Task<IEnumerable<TSource>> @this)
 	{
@@ -81,7 +80,7 @@ public static class EnumerableTaskExtensions
 		var source = await @this.ConfigureAwait(false);
 		return source.ToHashSet(comparer);
 	}
-
+#endif
 	public static async Task<IImmutableSet<TSource>> ToImmutableHashSetAsync<TSource>(this Task<IEnumerable<TSource>> @this)
 	{
 		var source = await @this.ConfigureAwait(false);
@@ -105,10 +104,10 @@ public static class EnumerableTaskExtensions
 		var source = await @this.ConfigureAwait(false);
 		return source.ToImmutableSortedSet(comparer);
 	}
-#endif
+
 	#endregion
 
-#region ToDictionary
+	#region ToDictionary
 
 	public static async Task<IDictionary<TKey, TSource>> ToDictionaryAsync<TSource, TKey>(this Task<IEnumerable<TSource>> @this, Func<TSource, TKey> keySelector)
 		where TKey : notnull
@@ -137,7 +136,7 @@ public static class EnumerableTaskExtensions
 		var source = await @this.ConfigureAwait(false);
 		return source.ToDictionary(keySelector, elementSelector, keyComparer);
 	}
-#if !NETSTANDARD2_0
+
 	public static async Task<IImmutableDictionary<TKey, TSource>> ToImmutableDictionaryAsync<TSource, TKey>(this Task<IEnumerable<TSource>> @this, Func<TSource, TKey> keySelector)
 		where TKey : notnull
 	{
@@ -193,10 +192,10 @@ public static class EnumerableTaskExtensions
 		var source = await @this.ConfigureAwait(false);
 		return source.ToImmutableSortedDictionary(keySelector, elementSelector, keyComparer, valueComparer);
 	}
-#endif
+
 	#endregion
 
-#region Select
+	#region Select
 
 	public static async Task<IEnumerable<TResult>> Select<TSource, TResult>(this Task<IEnumerable<TSource>> @this, Func<TSource, TResult> selector)
 	{
@@ -216,9 +215,9 @@ public static class EnumerableTaskExtensions
 		return source.Select(selector);
 	}
 
-#endregion
+	#endregion
 
-#region SelectMany
+	#region SelectMany
 
 	public static async Task<IEnumerable<TResult>> SelectMany<TSource, TResult>(this Task<IEnumerable<TSource>> @this, Func<TSource, IEnumerable<TResult>> selector)
 	{
@@ -244,5 +243,5 @@ public static class EnumerableTaskExtensions
 		return source.SelectMany(collectionSelector, resultSelector);
 	}
 
-#endregion
+	#endregion
 }
