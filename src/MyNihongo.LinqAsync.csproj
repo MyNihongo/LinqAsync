@@ -9,7 +9,7 @@
 		<Product>MyNihongo</Product>
 		<Copyright>Copyright © 2022 MyNihongo</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Version>0.1.0</Version>
+		<Version>0.2.0</Version>
 		<PackageProjectUrl>https://github.com/MyNihongo/LinqAsync</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/MyNihongo/LinqAsync</RepositoryUrl>
 		<PackageReleaseNotes>https://github.com/MyNihongo/LinqAsync/releases/</PackageReleaseNotes>
