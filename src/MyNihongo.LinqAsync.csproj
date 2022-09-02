@@ -9,7 +9,7 @@
 		<Product>MyNihongo</Product>
 		<Copyright>Copyright © 2022 MyNihongo</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Version>0.2.0</Version>
+		<Version>0.3.0</Version>
 		<PackageProjectUrl>https://github.com/MyNihongo/LinqAsync</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/MyNihongo/LinqAsync</RepositoryUrl>
 		<PackageReleaseNotes>https://github.com/MyNihongo/LinqAsync/releases/</PackageReleaseNotes>
@@ -19,15 +19,15 @@
 		<GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
 	</PropertyGroup>
 
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+		<PackageReference Include="System.Collections.Immutable" Version="6.0.0" />
+	</ItemGroup>
+
 	<ItemGroup>
 		<None Include="..\favico.png">
 			<Pack>True</Pack>
 			<PackagePath />
 		</None>
-	</ItemGroup>
-
-	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-	  <PackageReference Include="System.Collections.Immutable" Version="6.0.0" />
 	</ItemGroup>
 
 </Project>
